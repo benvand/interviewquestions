@@ -1,0 +1,231 @@
+@import url('normalize.css');
+/*
+Notes:
+Style design BenjaminVandersteen@gmail.com Aug 2013
+vm + vmin included for cross browser compatability (looking at you IE)
+Page should scale to browser size, especially when vh vmin vmax (viewport size) is adopted by all
+*/
+
+
+/*Generic*/
+* {
+    /*font-family: "Avantgarde";*/
+    /*font-family: "Arial";*/
+    /*font-family: "Symbol Arial Avantgarde";*/
+    font-family: 'pt_sansregular';
+/*, Arial, sans-serif;*/
+    font-size: 14pt;
+}
+
+
+/*Body*/
+body {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+
+    background: center center fixed ;
+    background-size: 100%;
+}
+
+
+/*TextDefs*/
+h1 {
+
+}
+
+h2 {
+    text-transform:uppercase;
+    font-weight:normal;
+    font-size: 7vm;
+    font-size: 7vmin;
+    /*margin-top: 40vh;*/
+    margin-bottom: 1vh;
+    position: relative;
+}
+
+h2.mid {
+    margin-bottom: 1vh;
+        }
+
+h3 {
+    margin-top: 1vh;
+    font-weight:normal;
+    font-size: 2.5vm;
+    font-size: 2.5vmin;
+}
+
+h4 {
+    margin-top: 1vh;
+    font-weight:normal;
+    font-size: 2.2vm;
+    font-size: 2.2vmin;
+}
+
+h5 {
+    font-weight:normal;
+}
+
+/*links*/
+a {
+    color: black;
+    text-decoration: none;
+    border:0;
+    padding-top: 0;
+    page-break-before: avoid;
+    vertical-align: top;
+    top: 0;
+    margin:0;
+}
+
+
+/*menus*/
+div.menu{
+    background-color: white;
+    border: 1px solid black;
+    position: relative;
+    top: -12vw;
+    left: 0.5vw;
+    width: 30vw;
+    height: 1.8vw;
+    display: block;
+}
+
+div.menuspacer{
+    padding-top: 0.1vw;
+}
+
+div.menuitem{
+    float:left;
+}
+
+div.topmenuitem{
+    font-size: 1.2vw;
+    text-align: center;
+}
+div.topmenuitem:hover{
+    font-size: 1.25vw;
+}
+
+
+/*logos*/
+img.logo{
+    max-width:100%;
+    max-height:100%;
+}
+div.logo{
+    position: relative;
+    width: 45vw;
+    height: auto;
+}
+
+
+
+/* Divs */
+
+div.center{
+    align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.container{
+    position: relative;
+    background-color: white;
+    border: 1px solid black;
+    height: auto;
+    }
+
+div.infocontainer{
+    width: 45vw;
+    overflow: auto;
+}
+
+div.center_under{
+    position: relative;
+    text-align: center;
+}
+
+div.center_bottom{
+    position: absolute;
+    /*bottom: 0px;*/
+    width: inherit;
+    text-align: center;
+}
+
+div.bottom{
+    width: 50%;
+    margin:0 auto;
+    text-align: center;
+}
+
+/*footer*/
+footer {
+    display: block;
+    position:fixed;
+    width: 100vw;
+    bottom:0px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Social Media Icons */
+/*SocMed */
+
+img.socMed {
+    width: 4vw;
+    height: auto;
+}
+img.socMed:hover {
+    opacity:0.8;
+}
+
+img.socMedVert {
+    width: 4vw;
+    height: auto;
+}
+
+/* Generic Helpers */
+.capitalize{
+    text-transform:capitalize;
+    }
+
+.center_text{
+    text-align:center;
+}
+
+/*images*/
+
+img.center{
+    align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+img.toucan{
+    margin-bottom: 0px;
+}
+
+img.agcb{
+    position: relative;
+    top: -200px;
+    left: -95px;
+    width: 600px;
+    height: 39px;
+}
+
+/*jcoverflip */
+.ui-jcoverflip {
+    position: relative;
+    }
+
+.ui-jcoverflip--item {
+    position: absolute;
+    display: block;
+    }
+
+
+

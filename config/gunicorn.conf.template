@@ -1,0 +1,155 @@
+# Config File
+#(How to specify config on CL)
+#config=
+    #-c FILE, --config FILE
+    #Only has an effect when specified on the command line or as part of an 
+    #application specific configuration.
+
+# Server Socket
+bind=["127.0.0.1:8000",]
+    #An IP is a valid HOST.
+    #Multiple addresses can be bound. ex.:
+#backlog=2048
+    #The maximum number of pending connections.
+    #Exceeding this number results in the client getting an error when 
+    #attempting to connect. It should only affect servers under significant load
+
+# Worker Processes
+workers=2
+    #The number of worker process for handling requests.
+    #Generally 1+ 2-4 x $(NUM_CORES) range
+#worker_class=sync
+    #http://docs.gunicorn.org/en/latest/design.html
+    #sync|eventlet - Requires eventlet >= 0.9.7|gevent 
+    #    - Requires gevent >= 0.12.2 (?)|tornado - Requires tornado >= 0.2
+#worker_connections=1000
+    #The maximum number of simultaneous clients.
+    #This setting only affects the Eventlet and Gevent worker types.
+#max_requests=0
+    #The maximum number of requests a worker will process before restarting.
+    #If this is set to zero (the default) automatic worker restarts are disabled
+#timeout=30
+    #Workers silent for more than this many seconds are killed and restarted.
+#graceful_timeout=30
+    #Timeout for graceful workers restart.
+#keepalive=2
+#    The number of seconds to wait for requests on a Keep-Alive connection.
+
+# Security
+#limit_request_line=4094
+    #The maximum size of HTTP request line in bytes.
+    #This parameter can be used to prevent any DDOS attack.
+#limit_request_fields=100
+    #Limit the number of HTTP headers fields in a request.
+    #This parameter is used to limit the number of headers in a request 
+    #to prevent DDOS attack. Used with the limit_request_field_size it allows 
+    #more safety. By default this value is 100 and cant be larger than 32768
+#limit_request_field_size=8190
+    #Limit the allowed size of an HTTP request header field.
+
+# Debugging
+#debug=False
+    #Turn on debugging in the server.
+    #This limits the number of worker processes to 1 and 
+    #changes some error handling thats sent to clients.
+#spew=False
+    #Install a trace function that spews every line executed by the server.
+    #This is the nuclear option.
+#check_config=True
+    #Check the configuration..
+
+# Server Mechanics
+#preload_app=False
+    #Load application code before the worker processes are forked.
+#daemon=False
+    #daemonize
+#pidfile=
+    #A filename to use for the PID file.
+    #If not set, no PID file will be written.
+#user=1001
+    #A valid user id (as an integer) 
+    #or the name of a user that can be retrieved with a call to 
+    #pwd.getpwnam(value) or None to not change the worker process user.
+#group=1001
+    #A valid group id (as an integer) or the name of a user that can be 
+    #retrieved with a call to pwd.getgrnam(value) or None 
+    #to not change the worker processes group.
+#umask=0
+    #A bit mask for the file mode on files written by Gunicorn.
+    #Note that this affects unix socket permissions.
+#tmp_upload_dir=None
+    #Directory to store temporary request data as they are read.
+#secure_scheme_headers={X-FORWARDED-PROTOCOL: ssl, 
+    #X-FORWARDED-PROTO: https, X-FORWARDED-SSL: on}
+    #A dictionary containing headers and values that the front-end proxy uses to
+    # indicate HTTPS requests. These tell gunicorn to set wsgi.url_scheme 
+    #to https, so your application can tell that the request is secure.
+#x_forwarded_for_header
+#forwarded_allow_ips=127.0.0.1
+    #Front-ends IPs from which allowed to handle X-Forwarded-* headers.
+    # (comma separate).
+
+# Logging
+accesslog="/var/log/gunicorn.access.log" #\(- means log to stderr.\)
+#access_log_format=
+    #By default:
+    #%(h)s %(l)s %(u)s %(t)s “%(r)s” %(s)s %(b)s “%(f)s” “%(a)s”
+    #h: remote address l: ‘-‘ u: currently ‘-‘, may be user name in future 
+    #releases t: date of the request r: status line (ex: GET / HTTP/1.1) 
+    #s: status b: response length or ‘-‘ f: referer a: user agent 
+    #T: request time in seconds D: request time in microseconds, 
+    #p: process ID {Header}i: request header {Header}o: response header
+errorlog="/var/log/gunicorn.error.log" #(“-” means log to stderr.)
+#loglevel= debug|info|warning|error|critical
+#logger_class
+#logconfig
+#syslog_addr
+#syslog=False
+#syslog_prefix
+#syslog_facility
+#enable_stdio_inheritance=False
+
+# Process Naming
+#A base to use with setproctitle for process naming.
+#It defaults to ‘gunicorn’.
+#proc_name
+#default_proc_name=gunicorn
+
+# Django (noit needed for Django 1.5)
+#The Python path to a Django settings module.
+#e.g. ‘myproject.settings.main’. If this isn’t provided, the DJANGO_SETTINGS_MODULE environment variable will be used.
+#django_settings
+
+# Server Mechanics
+#A directory to add to the Python path for Django.
+#e.g. ‘/home/djangoprojects/myproject’.
+#pythonpath=
+
+# Server Hooks
+##See http://docs.gunicorn.org/en/latest/configure.html#server-hooks
+#on_starting
+#on_reload
+#when_ready
+#pre_fork
+#post_fork
+#post_worker_init
+#pre_exec
+#pre_request
+#worker_exit
+#nworkers_changed
+
+# Server Mechanics
+#Enable detect PROXY protocol (PROXY mode).
+#Allow using Http and Proxy together. It’s may be useful for work with 
+#stunnel as https frondend and gunicorn as http server.
+#PROXY protocol: http://haproxy.1wt.eu/download/1.5/doc/proxy-protocol.txt
+#Example for stunnel config:
+#[https]
+#protocol = proxy accept = 443 connect = 80 cert = /etc/ssl/certs/stunnel.pem key = /etc/ssl/certs/stunnel.key
+#proxy_protocol
+#proxy_allow_ips
+
+# SSL Files
+#keyfile = None
+#certfile = None
+

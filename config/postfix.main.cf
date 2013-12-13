@@ -1,0 +1,30 @@
+# See /usr/share/postfix/main.cf.dist for a commented, more complete version
+
+
+# Debian specific:  Specifying a file name will cause the first
+# line of that file to be used as the name.  The Debian default
+# is /etc/mailname.
+#myorigin = /etc/mailname
+
+smtpd_banner = $myhostname ESMTP $mail_name (Ubuntu)
+biff = no
+
+# appending .domain is the MUA's job.
+append_dot_mydomain = no
+
+# Uncomment the next line to generate "delayed mail" warnings
+#delay_warning_time = 4h
+
+readme_directory = no
+home_mailbox = Maildir/
+mailbox_command = 
+myorigin = /etc/mailname
+mydestination = localhost.localdomain, localhost, interviewquestions.com
+#mail.interviewquestions.com, ip-172-31-46-100.us-west-2.compute.internal, localhost.us-west-2.compute.internal, localhost, interviewquestions.co.uk, interviewquestions.com, interviewquestions.co.uk, ip-172-31-46-100.localdomain
+relayhost = 
+mynetworks = 127.0.0.0/8 172.31.32.0/20 [::1]/128 [fe80::]/64
+#54.213.54.172/127.0.0.0/8 172.31.32.0/20 [::1]/128 [fe80::]/64
+mailbox_size_limit = 0
+recipient_delimiter = +
+inet_interfaces = all
+inet_protocols = all

@@ -1,0 +1,21 @@
+Open ports 25 80 22 110 143 smtp http ssh pop3 and imap
+link in configs, restart services
+
+
+
+
+
+
+Postfix https://help.ubuntu.com/community/PostfixBasicSetupHowto
+
+A, CNAME, AAAA, TXT, NS records:
+Hostname, type, result
+,A,ExternalIP
+mail,A,ExternalIP
+www, CNAME, ec2ExternalDomainName
+
+MX records:
+Hostname, Priority, Result
+,10,mail.RegiisteredDomainName
+
+echo 'MAIL=$HOME/Maildir;export MAIL' >> .profile
