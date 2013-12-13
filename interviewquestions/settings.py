@@ -152,13 +152,13 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'south',
-    'stdimage',
-    'justdifferentsites',
-    'about',
-    'blog',
-    'contact',
-    'gallery',)
+    'apps.justdifferentsites',
+    'apps.justdifferentusers',
+    'apps.about',
+    'apps.contact',
+    'apps.quest',)
 
+AUTH_USER_MODEL='justdifferentusers.IQUser'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
