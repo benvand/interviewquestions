@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+{% load staticfiles %}
+<html>
+<head>
+    <title>{{ site.name }}</title>
+
+    <meta charset=”utf-8”>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-css/styles.css' %}" />
+
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{% static 'img/favicon64.gif' %}" />
+    <link rel="icon" type="image/png" href="{% static 'img/favicon64.gif' %}" />
+    <!-- For iPhone 4 Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'img/favicon114.png' %}">
+    <!-- For iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'img/favicon72.png' %}">
+    <!-- For iPhone: -->
+    <link rel="apple-touch-icon-precomposed" href="{% static 'img/favicon57.png' %}">
+
+
+
+
+    {% block head %} {% endblock %} {#Allow extensions to head in app specific templates#}
+
+</head>
+
+<body>
+
+    <div class="navbar navbar-inverse navbar-static-top">
+        <a class="brand navbar-left" style="margin-left: 20px" href="/"><img src="{% static 'img/logo57.png' %}" style="border-bottom: 0px"/></a>
+        <div class="container">
+            <a href="/" class="navbar-brand">{{ site.name }}</a>
+
+            <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <div class="collapse navbar-collapse navbar-static-top">
+                <ul class="nav navbar-nav ">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    <li>
+                        <a href="#">New</a>
+                    </li>
+                    <li>
+                        <a href="#">Search</a>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav pull-right">
+                    <li>
+                        <a href="/login">Login</a>
+                    </li>
+                    <li>
+                        <a href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    {% block body %}{% endblock %}
+
+
+
+
+
+
+
+
+    <!-- Javascript -->
+    <script src = "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src = "{% static 'bootstrap-js/bootstrap.js' %}"></script>
+
+</body>

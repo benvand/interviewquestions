@@ -30,9 +30,13 @@ urlpatterns += staticfiles_urlpatterns()
 
 #Apps
 
+
+
+
 #Dev only. Implicit on development machines
 if settings.DEV:
-    urlpatterns += patterns('', url('',include('app.quest.urls')),)
+    urlpatterns += patterns('', url('', include('apps.justdifferentusers.urls')))
+    urlpatterns += patterns('', url('', include('apps.quest.urls')))
 
 #Prod Final structure
 elif settings.PROD:

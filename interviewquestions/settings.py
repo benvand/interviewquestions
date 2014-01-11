@@ -158,7 +158,13 @@ INSTALLED_APPS = (
     'apps.contact',
     'apps.quest',)
 
+
+
 AUTH_USER_MODEL='justdifferentusers.IQUser'
+LOGIN_REDIRECT_URL='/user/'
+
+LOGIN_URL='/login'
+LOGOUT_URL='/logout'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
