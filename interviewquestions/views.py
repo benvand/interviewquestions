@@ -8,8 +8,7 @@ from django.contrib.sites.models import get_current_site
 
 def comingSoon(request):
     Site = get_current_site(request)
-    context = {'global_site':Site,}
-    return render(request, 'comingsoon.html', context)
+    return render(request, 'comingsoon.html', {})
 
 def fiveHundred(request):
     return render(request, '500.html')

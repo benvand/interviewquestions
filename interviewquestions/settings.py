@@ -126,6 +126,7 @@ MIDDLEWARE_CLASSES = (
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.auth.context_processors.auth',
+    'apps.justdifferentsites.context_processors.site'
 )
 
 ROOT_URLCONF = 'interviewquestions.urls'
@@ -146,11 +147,13 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django.contrib.flatpages',
     'gunicorn',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
+    'registration',
     'south',
     'apps.justdifferentsites',
     'apps.justdifferentusers',
@@ -161,10 +164,11 @@ INSTALLED_APPS = (
 
 
 AUTH_USER_MODEL='justdifferentusers.IQUser'
-LOGIN_REDIRECT_URL='/user/'
+LOGIN_REDIRECT_URL='/auth/user/'
+REDIRECT_FIELD_NAME='/auth/login'
 
-LOGIN_URL='/login'
-LOGOUT_URL='/logout'
+LOGIN_URL='/auth/login'
+LOGOUT_URL='/auth/logout'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -194,3 +198,6 @@ LOGGING = {
         },
     }
 }
+
+#django-registration
+ACCOUNT_ACTIVATION_DAYS = 30

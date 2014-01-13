@@ -1,0 +1,42 @@
+
+{% extends "base.html" %}
+
+
+{% block body %}
+
+
+
+    {% if warning %}
+    <div class="row alert-danger">
+        <div class="text-center">
+            <h2>{{ warning }}</h2>
+
+     {% elif form.non_field_errors %}
+    <div class="row alert-danger">
+        <div class="text-center">
+            <h2>{% for error in form.non_field_errors %}{{ error }}{%  endfor %}</h2>
+    {% elif form.errors %}
+    <div class="row alert-danger">
+        <div class="text-center">
+            <h2>There were errors on your form. Please check below</h2>
+    {% elif message %}
+    <div class="row alert-info">
+        <div class="text-center">
+            <h2>{{ message }}</h2>
+    {% else %}
+    <div class="row ">
+        <div class="text-center">
+            <br>
+            <br>
+            <br>
+    {% endif %}
+        </div>
+    </div>
+
+{% block form %}
+
+{% endblock %}
+
+{% endblock %}
+
+

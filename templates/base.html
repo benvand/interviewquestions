@@ -61,11 +61,20 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav pull-right">
+                    {% if not request.user.is_authenticated %}
+                        <li>
+                            <a href="/auth/register">Register</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="/auth/user">Welcome {{ request.user.username|capfirst }}!</a>
+                        </li>
+                    {% endif %}
                     <li>
-                        <a href="/login">Login</a>
+                        <a href="/auth/login">Login</a>
                     </li>
                     <li>
-                        <a href="/logout">Logout</a>
+                        <a href="/auth/logout">Logout</a>
                     </li>
                 </ul>
             </div>
