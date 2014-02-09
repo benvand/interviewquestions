@@ -126,7 +126,8 @@ MIDDLEWARE_CLASSES = (
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.contrib.auth.context_processors.auth',
-    'apps.justdifferentsites.context_processors.site'
+    'apps.justdifferentsites.context_processors.site',
+    'django.contrib.messages.context_processors.messages',
 )
 
 ROOT_URLCONF = 'interviewquestions.urls'
@@ -157,18 +158,21 @@ INSTALLED_APPS = (
     'south',
     'apps.justdifferentsites',
     'apps.justdifferentusers',
-    'apps.about',
-    'apps.contact',
-    'apps.quest',)
+    # 'apps.about',
+    # 'apps.contact',
+    'apps.quest',
+    'apps.flatpages',
+    'apps.search'
+)
 
 
 
 AUTH_USER_MODEL='justdifferentusers.IQUser'
-LOGIN_REDIRECT_URL='/auth/user/'
-REDIRECT_FIELD_NAME='/auth/login'
-
-LOGIN_URL='/auth/login'
-LOGOUT_URL='/auth/logout'
+LOGIN_REDIRECT_URL='profile'
+# REDIRECT_FIELD_NAME='/auth/login'
+#
+# LOGIN_URL='/auth/login'
+# LOGOUT_URL='/auth/logout'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

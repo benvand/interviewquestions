@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{% block head %}
+    <meta name="keywords" content="blog, information, posts, musings, thoughts">
+    <meta name="description" content="InterviewQuestions, contains all posts">
+{% endblock head %}
+
+
+{% block body %}
+
+    <div class="container row text-left pagination">
+        <form>
+            {% for field in form %}
+                <div class="col-10">
+                    <div class="col-md-1">{{ field.label_tag }}</div><div class="col-md-2">{{ field}}</div><br><br>
+                </div>
+            {% endfor %}
+            <div class="col-10">
+                <div class="col-lg-1" style="margin-left: 12px"></div><button type="submit" class="btn btn-default">Search</button>
+            </div>
+        </form>
+{#        <h3 style="margin-bottom: 0px;"><a href="#">How to get a job in IT?</a></h3>#}
+{#        <h4 style="margin-top: 0px; margin-left: 5px; ">asked by <a href="#">user</a> <small>at 00:00 00/00/0000</small></h4>#}
+    </div>
+{{ by_username }}
+{{ by_question }}
+{{ by_email }}
+
+
+
+{% endblock %}

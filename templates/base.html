@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
+
 {% load staticfiles %}
 <html>
 <head>
@@ -34,7 +35,7 @@
     <div class="navbar navbar-inverse navbar-static-top">
         <a class="brand navbar-left" style="margin-left: 20px" href="/"><img src="{% static 'img/logo57.png' %}" style="border-bottom: 0px"/></a>
         <div class="container">
-            <a href="/" class="navbar-brand">{{ site.name }}</a>
+            <a href="{% url 'home' %}" class="navbar-brand">{{ site.name }}</a>
 
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="icon-bar"></span>
@@ -45,50 +46,75 @@
             <div class="collapse navbar-collapse navbar-static-top">
                 <ul class="nav navbar-nav ">
                     <li>
-                        <a href="/">Home</a>
+                         <a href="{% url 'top' %}">Top</a>
                     </li>
                     <li>
-                        <a href="#">New</a>
+                        <a href="{% url 'new' %}">New</a>
                     </li>
                     <li>
-                        <a href="#">Search</a>
+                        <a href="{% url 'search' %}">Search</a>
                     </li>
                     <li>
-                        <a href="#">About</a>
+                        <a href="{% url 'about' %}">About</a>
                     </li>
                     <li>
-                        <a href="#">Contact</a>
+                        <a href="{% url 'contact' %}">Contact</a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav pull-right">
                     {% if not request.user.is_authenticated %}
                         <li>
-                            <a href="/auth/register">Register</a>
+                            <a href="{% url "register" %}">Register</a>
                         </li>
                     {% else %}
                         <li>
-                            <a href="/auth/user">Welcome {{ request.user.username|capfirst }}!</a>
+                            <a href="{% url "profile" %}">Welcome {{ request.user.username|capfirst }}!</a>
                         </li>
                     {% endif %}
                     <li>
-                        <a href="/auth/login">Login</a>
+                        <a href="{% url "login" %}">Login</a>
                     </li>
                     <li>
-                        <a href="/auth/logout">Logout</a>
+                        <a href="{% url "logout" %}">Logout</a>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
 
-    {% block body %}{% endblock %}
+    <div class="col-md-1 pull-right"style="background-image:url({% static 'img/blue-arrow-sized.png' %});height: 60px;width: 302px" >
+{#        style="background-image: url({% static 'img/blue-arrow-sized.png' %})">#}
+
+{#        <div style="background-image: url({% static 'img/blue-arrow-sized.png' %})"  href="/">#}
+            <div style="height: 10px"></div>
+            <a href="{% url "create_question" %}" style="color:#ffffff;font-size: 30px;margin-top: 20px">Ask a Question</a>
+
+
+{#                <img src="{% static 'img/blue-arrow-sized.png' %}" style="margin-top:20px"></a>#}
+{#            <p style="position: absolute; float: inherit">foobarbaz</p>#}
+
+{#        </div>#}
+    </div>
+
+{% if messages %}
+    {% for message in messages %}
+        <div{% if message.tags %} class="row alert-{{ message.tags }}"{% endif %}>
+            <div class="text-center">
+                <h2>{{ message }}</h2>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
 
 
 
+    <div class="col-md-offset-1">
+
+    {% block body %}
 
 
 
-
+    {% endblock %}
 
     <!-- Javascript -->
     <script src = "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

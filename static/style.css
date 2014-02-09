@@ -217,6 +217,15 @@ img.agcb{
     height: 39px;
 }
 
+/*shapes*/
+.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 60px solid black;
+    border-bottom: 60px solid black;
+
+    border-left: 60px solid green;
+}
 /*jcoverflip */
 .ui-jcoverflip {
     position: relative;

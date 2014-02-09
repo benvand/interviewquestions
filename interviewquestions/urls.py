@@ -35,8 +35,10 @@ urlpatterns += staticfiles_urlpatterns()
 
 #Dev only. Implicit on development machines
 if settings.DEV:
-    urlpatterns += patterns('', url('auth/', include('apps.justdifferentusers.urls')))
+    urlpatterns += patterns('', url('', include('apps.justdifferentusers.urls')))
     urlpatterns += patterns('', url('', include('apps.quest.urls')))
+    urlpatterns += patterns('', url('', include('apps.flatpages.urls')))
+    urlpatterns += patterns('', url('', include('apps.search.urls')))
 
 #Prod Final structure
 elif settings.PROD:
